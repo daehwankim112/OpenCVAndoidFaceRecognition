@@ -36,7 +36,7 @@ public class MainActivity extends CameraActivity {
     private static final String TAG = "OCVSample::Activity";
 
     CameraBridgeViewBase cameraBridgeViewBase;
-    
+
     CascadeClassifier cascadeClassifier;
     Mat gray, rgb, transpose_gray, transpose_rgb;
     MatOfRect rects;
@@ -73,7 +73,7 @@ public class MainActivity extends CameraActivity {
                 transpose_gray = gray.t();
                 transpose_rgb = rgb.t();
 
-                cascadeClassifier.detectMultiScale(transpose_gray, rects, 1.1, 2);
+                cascadeClassifier.detectMultiScale(transpose_rgb, rects, 1.1, 2);
 
                 for (Rect rect: rects.toList()) {
                     Mat submat = transpose_rgb.submat(rect);
